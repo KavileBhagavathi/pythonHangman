@@ -157,7 +157,7 @@ class Game:
                 self.draw_hangman()
                 
             if"".join(self.progress) == (self.word2guess):
-                print("CONGRATULATIONS!")
+                print("CONGRATULATIONS! You have won an AUDI car")
                 sys.exit()
             else:    
                 print(" ".join(self.progress))
@@ -185,7 +185,7 @@ class Game:
         try:
             response = requests.get(apiUrl)
             if response.status_code == 200:
-                self.word2guess = response.json()[0]
+                self.word2guess = response.json()[0].upper()
         except Exception as e:
             print(e)
             self.word2guess = "COCONUT"
